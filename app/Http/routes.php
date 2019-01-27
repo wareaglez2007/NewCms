@@ -1,7 +1,7 @@
 <?php
 
 use App\Post;
-
+use App\User;
 /*
   |--------------------------------------------------------------------------
   | Application Routes
@@ -12,6 +12,13 @@ use App\Post;
   | and give it the controller to call when that URI is requested.
   |
  */
+
+Route::get('/user/{id}/post', function ($id){
+
+   return User::find($id)->post->content;
+});
+
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -100,3 +107,5 @@ Route::get('/forcedel', function(){
     return $force;
 });
 Route::get('post/{id}/{name}', 'PostsController@show_post');
+
+
