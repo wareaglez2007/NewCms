@@ -99,3 +99,4 @@ Route::get('/forcedel', function(){
     
     return $force;
 });
+Route::get('post/{id}/{name}', 'PostsController@show_post');
