@@ -13,9 +13,20 @@ use App\User;
   |
  */
 
+
+
+//One to one relationship see User Model
 Route::get('/user/{id}/post', function ($id){
 
-   return User::find($id)->post->content;
+   return User::find($id)->post;
+});
+
+
+//Inverse relationship see Post Model
+Route::get('/post/{id}/user', function ($id){
+
+    return Post::find($id)->user->name;
+
 });
 
 
@@ -106,6 +117,6 @@ Route::get('/forcedel', function(){
     
     return $force;
 });
-Route::get('post/{id}/{name}', 'PostsController@show_post');
+//Route::get('post/{id}/{name}', 'PostsController@show_post');
 
 
